@@ -85,7 +85,7 @@ function normalFetchPrice() {
     client.getMarketStatus().then(response => {
         const { priceValues } = app.locals;
 
-        if (!response.market_is_open) {
+        if (response.market_is_open) {
             // check if user have quota
             client.getQuota().then(response => {
                 if (response.quota_remaining) {
